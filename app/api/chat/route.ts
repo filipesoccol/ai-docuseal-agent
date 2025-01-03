@@ -37,8 +37,6 @@ export async function POST(request: Request) {
     try {
         const { messages } = await request.json();
 
-        console.log(messages);
-
         const completion = await api.chat.completions.create({
             model: "gpt-4o-mini",
             messages: [
