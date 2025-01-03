@@ -9,7 +9,7 @@ const DocuSealPanel = () => {
     if (!docusealValues) return null;
 
     return (
-        <div className="w-1/2 border-r border-gray-200">
+        <div className="border-r border-gray-200">
             <DocusealForm
                 src="https://docuseal.com/d/U4VZ2N1dPEAdZJ"
                 values={docusealValues}
