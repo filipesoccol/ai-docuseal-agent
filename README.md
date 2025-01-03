@@ -1,4 +1,4 @@
-# Chat DocuSeal
+# AI DocuSeal Agent
 
 A chat interface with AI assistance for filling DocuSeal documents.
 
@@ -18,28 +18,20 @@ A chat interface with AI assistance for filling DocuSeal documents.
 ## Development
 
 - `npm run dev` - Start development server
-- `npm run test` - Run tests
-- `npm run test:api` - Run API tests
 - `npm run lint` - Run linting
 
 ## Project Structure
 
 ```
-/src
-  /app - Next.js app router pages
+/app
   /components - React components
-  /lib - Shared libraries and utilities
   /api - API routes
   /types - TypeScript type definitions
   /hooks - Custom React hooks
-  /utils - Utility functions
-  /tests - Test files
 ```
 
 ## Environment Variables
 
 Required environment variables:
 
-- `DOCUSEAL_API_KEY` - DocuSeal API key
 - `AI_API_KEY` - AI service API key
-- `API_BASE_URL` - Base URL for API calls
