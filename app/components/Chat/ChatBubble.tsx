@@ -31,8 +31,8 @@ export default function ChatBubble({ message, sendMessage }: ChatBubbleProps) {
                         // Check if it's a JSON code block
                         if (language === 'json') {
                             try {
-                                JSON.parse(value);
-                                return <DocuSealButton jsonData={value} />;
+                                const jsonData = JSON.parse(value);
+                                return <DocuSealButton jsonData={jsonData} />;
                             } catch (error) {
                                 return <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded" {...props}>{children}</code>;
                             }

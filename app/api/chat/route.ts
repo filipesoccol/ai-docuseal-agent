@@ -22,7 +22,7 @@ The resulting JSON should be in the following format:
   name: "",
   last_name: "",
   email: "",
-  address: "",
+  street: "",
   city: "",
   state: "",
   zip_code: "",

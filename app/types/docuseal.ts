@@ -1,5 +1,3 @@
-export interface DocuSealResponse {
-    signing_url: string;
-    submission_id: string;
-    status: string;
-} 
+export interface DocuSealData {
+    [key: string]: string | number | boolean;
+}

@@ -1,50 +1,29 @@
-import { useState } from 'react';
+'use client';
+
+import { useDocuSealContext } from '@/contexts/DocuSealContext';
+import { DocuSealData } from '@/types/docuseal';
 
 interface DocuSealButtonProps {
-    jsonDocumet: any;
+    jsonData: DocuSealData;
 }
 
-export default function DocuSealButton({ jsonDocumet }: DocuSealButtonProps) {
-    const [isLoading, setIsLoading] = useState(false);
+export default function DocuSealButton({ jsonData }: DocuSealButtonProps) {
+    const { openDocuSeal } = useDocuSealContext();
 
-    const handleClick = async () => {
+    const handleDocuSealClick = async () => {
         try {
-            setIsLoading(true);
-
-            const response = await fetch('/api/docuseal', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    documentId: '',
-                    jsonDocument: jsonDocumet,
-                }),
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to get signing URL');
-            }
-
-            const { url } = await response.json();
-
-            // Open DocuSeal in a new tab
-            window.open(url, '_blank', 'noopener,noreferrer');
+            openDocuSeal(jsonData);
         } catch (error) {
-            console.error('Error opening DocuSeal:', error);
-            // Add error handling/notification here
-        } finally {
-            setIsLoading(false);
+            console.error('Error creating DocuSeal submission:', error);
         }
     };
 
     return (
         <button
-            onClick={handleClick}
-            disabled={isLoading}
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-blue-300"
+            onClick={handleDocuSealClick}
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
         >
-            {isLoading ? 'Loading...' : 'Sign Document'}
+            Open DocuSeal
         </button>
     );
 } 
